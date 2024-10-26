@@ -15,7 +15,7 @@
     <v-navigation-drawer
       v-model="drawer"
       permanent
-      width="175"
+      width="100"
       class="navi"
       color="black"
     >
@@ -24,7 +24,7 @@
         <template v-slot:prepend>
           <v-img src="../img/profile.png" alt="Niko Polistico" class="avatar"></v-img>
         </template>
-        <v-list-item-title class="ml-2">About Me</v-list-item-title>
+        <v-list-item-title class="ml-2"></v-list-item-title>
       </v-list-item>
 
       <v-divider></v-divider>

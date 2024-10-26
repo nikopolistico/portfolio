@@ -3,40 +3,28 @@
     <v-container fluid class="container">
       <v-row class="fill-height">
         <!-- Main Content -->
-        <v-col cols="12" md="6" class="text-center text-md-left bottom-50 d-flex flex-column justify-center">
+        <v-col cols="12" md="6" class="text-center text-md-left">
           <div class="about-me-section">
             <h1 class="text-white glowing-text">
-              <!-- Name dynamically inserted here -->
               I'm Niko Polistico
             </h1>
-            <p class="text-white description-text" ref="typingText">
-            </p>
-          <div>
-            <h1 class="text-white glowing-text1">IT - 110</h1>
+            <p class="text-white description-text" ref="typingText"></p>
+            <h1 class="text-white glowing-text1">
+              IT - 110
+            </h1>
             <p class="text-white description-text" ref="typingText1"></p>
           </div>
-        </div>
-
-          <!-- Loop through classes -->
-          <v-row class="mt-5">
-            <v-col v-for="(col, index) in class" :key="index" :class="col.about">
-            </v-col>
-          </v-row>
-          <v-row class="mt-5">
-            <v-col v-for="(col, index) in class" :key="index" :class="col.about">
-            </v-col>
-          </v-row>
         </v-col>
 
         <!-- Image Section -->
-        <v-col cols="12" md="6" class="image-wrapper">
+        <v-col cols="12" md="6" class="image-wrapper d-flex justify-center">
           <v-img
             src="../img/profilemain.png"
-            alt="image of a young woman."
+            alt="Profile image of Niko Polistico."
             class="image"
             contain
             height="80vh"
-            width="50vw"
+            max-width="400"
           ></v-img>
         </v-col>
       </v-row>
@@ -46,15 +34,6 @@
 
 <script>
 export default {
-  data() {
-    return {
-      class: [
-        { about: "about-me-section" },
-        { about: "about-me-section" },
-        { about: "about-me-section" },
-      ],
-    };
-  },
   mounted() {
     this.typingEffect(
       "I’m a passionate web developer focused on creating functional and visually appealing web applications.",
@@ -62,22 +41,22 @@ export default {
     );
     this.typingEffect(
       "Midterm front-end Project",
-      'typingText1' // Create another ref for this
+      'typingText1'
     );
   },
   methods: {
     typingEffect(text, element) {
-    const typingElement = this.$refs[element];
-    let index = 0;
-    function type() {
-      if (index < text.length) {
-        typingElement.innerHTML += text.charAt(index);
-        index++;
-        setTimeout(type, 50); // Adjust typing speed here
+      const typingElement = this.$refs[element];
+      let index = 0;
+      function type() {
+        if (index < text.length) {
+          typingElement.innerHTML += text.charAt(index);
+          index++;
+          setTimeout(type, 50); // Adjust typing speed here
+        }
       }
-    }
-    type();
-  },
+      type();
+    },
   }
 };
 </script>
@@ -236,5 +215,16 @@ export default {
 /* Text Colors */
 .text-purple {
   color: purple;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .glowing-text, .glowing-text1 {
+    font-size: 2.5rem; /* Reduce font size on smaller screens */
+  }
+
+  .description-text {
+    font-size: 1rem; /* Smaller description text */
+  }
 }
 </style>

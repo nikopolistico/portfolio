@@ -62,7 +62,7 @@
               />
             </v-col>
             <v-col cols="4">
-              <v-btn @click="searchLocation" color="purple" class="full-width">Go to Location</v-btn>
+              <v-btn @click="searchLocation" color="purple">Search</v-btn>
             </v-col>
           </v-row>
 
